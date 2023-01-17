@@ -1,4 +1,18 @@
-# Require TF version to be same as or greater than 0.12.13
+Provider "aws" {
+	region = "us-east-1"
+}
+
+resource "aws_instance" "Websever" {
+	ami = "0b5eea76982371e91"
+	instance_type = "t2.micro"
+}
+
+resource "aws_S3_bucket" "Dinobucket" {
+	bucket = "dino0101"
+	acl = "private"
+}
+
+/*# Require TF version to be same as or greater than 0.12.13
 terraform {
   required_version = ">=0.12.13"
   #backend "s3" {
@@ -15,7 +29,7 @@ provider "aws" {
   region  = "us-east-1"
   version = "~> 2.36.0"
 }
-
+*/
 
 /* Commented out until after bootstrap
 
